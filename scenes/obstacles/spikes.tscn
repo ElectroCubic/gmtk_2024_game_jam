@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbjkn8x2c0lr1"]
+
+[ext_resource type="Script" path="res://scenes/obstacles/spikes.gd" id="1_0c4v0"]
+
+[node name="Spikes" type="StaticBody2D" groups=["Spikes"]]
+scale = Vector2(1.01112, 1.01277)
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_0c4v0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-28.6809, 0, 26.703, 0, 18.791, -20.7351, 6.92299, -2.96216, -1.978, -20.7351, -9.88998, -2.96216, -20.769, -20.7351)
+
+[node name="SpikeArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpikeArea"]
+visible = false
+polygon = PackedVector2Array(-28.6809, 0, 26.703, 0, 18.791, -20.7351, 6.92299, -2.96216, -1.978, -20.7351, -9.88998, -2.96216, -20.769, -20.7351)
+
+[connection signal="body_entered" from="SpikeArea" to="." method="_on_spike_area_body_entered"]

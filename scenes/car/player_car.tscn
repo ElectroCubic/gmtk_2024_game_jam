@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4v8skcxp864g"]
+
+[ext_resource type="PackedScene" uid="uid://b1yvfon808vp6" path="res://scenes/car/car_tyre.tscn" id="1_0120j"]
+[ext_resource type="Script" path="res://scenes/car/car.gd" id="1_dbkji"]
+
+[node name="PlayerCar" type="RigidBody2D"]
+collision_mask = 28
+gravity_scale = 0.15
+script = ExtResource("1_dbkji")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-14, -7, 14, -7, 14, 7, -14, 7)
+
+[node name="FrontJoint" type="PinJoint2D" parent="."]
+position = Vector2(8, 17)
+node_a = NodePath("..")
+node_b = NodePath("FrontWheel")
+softness = 3.0
+
+[node name="FrontWheel" parent="FrontJoint" instance=ExtResource("1_0120j")]
+gravity_scale = 0.15
+
+[node name="BackJoint" type="PinJoint2D" parent="."]
+position = Vector2(-8, 17)
+node_a = NodePath("..")
+node_b = NodePath("BackWheel")
+softness = 3.0
+
+[node name="BackWheel" parent="BackJoint" instance=ExtResource("1_0120j")]
+gravity_scale = 0.15
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)

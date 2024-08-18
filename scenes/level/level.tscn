@@ -1,29 +1,57 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2wffb05yag63"]
+[gd_scene load_steps=4 format=3 uid="uid://b2wffb05yag63"]
 
-[ext_resource type="PackedScene" uid="uid://dbjkn8x2c0lr1" path="res://scenes/obstacles/spikes.tscn" id="2_5hiq1"]
+[ext_resource type="Script" path="res://scenes/level/Terrain.gd" id="1_rcs2x"]
 [ext_resource type="PackedScene" uid="uid://b4v8skcxp864g" path="res://scenes/car/player_car.tscn" id="2_c4yqb"]
+[ext_resource type="PackedScene" uid="uid://dbjkn8x2c0lr1" path="res://scenes/obstacles/spikes.tscn" id="3_x4cyv"]
 
 [node name="Level" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
-offset_left = 52.0
-offset_top = 384.0
-offset_right = 220.0
-offset_bottom = 463.0
+offset_left = -354.0
+offset_top = -61.0
+offset_right = -128.0
+offset_bottom = 49.0
+scale = Vector2(0.4, 0.4)
+theme_override_font_sizes/font_size = 80
 text = "LEVEL"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(564, 487)
+[node name="Terrain" type="StaticBody2D" parent="."]
 collision_layer = 4
 collision_mask = 11
+script = ExtResource("1_rcs2x")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(-8, -29)
-polygon = PackedVector2Array(-562, -84, -496, 33, -356, 34, -246, 51, -101, -20, -100, 53, -62, 52, -63, -21, -24, -21, -23, 51, 18, 51, 17, -23, 55, -24, 59, 48, 99, 48, 95, -25, 134, -27, 139, 46, 176, 46, 173, -31, 381, 29, 486, 11, 514, -69, 701, -146, 866, -150, 871, -62, 894, 146, -565, 158)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain"]
+polygon = PackedVector2Array(-562, -84, -520, -84, -496, 33, -356, 34, -246, 51, -101, -20, -100, 53, -62, 52, -63, -21, -24, -21, -23, 51, 18, 51, 17, -23, 55, -24, 59, 48, 99, 48, 95, -25, 134, -27, 139, 46, 176, 46, 173, -31, 381, 29, 486, 11, 569, -70, 763, -122, 877, -66, 936, 30, 1088, -16, 1166, -88, 1326, -109, 1401, -188, 1452, -231, 1501, -202, 1535, -239, 1611, -213, 1684, -234, 1713, -131, 1749, -95, 1788, -259, 1854, -283, 2018, -261, 2192, -309, 2286, -605, 2416, -605, 2416, -291, 2423, 173, 138, 194, -565, 158)
+
+[node name="Polygon2D" type="Polygon2D" parent="Terrain"]
+color = Color(0.410156, 0.218836, 0.0528717, 1)
 
 [node name="PlayerCar" parent="." instance=ExtResource("2_c4yqb")]
-position = Vector2(102, 439)
+position = Vector2(-411, -15)
 
-[node name="StaticBody2D2" parent="." instance=ExtResource("2_5hiq1")]
-position = Vector2(269, 504)
-rotation = 0.162192
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Spikes" parent="Obstacles" instance=ExtResource("3_x4cyv")]
+position = Vector2(-43, -21)
+
+[node name="Spikes3" parent="Obstacles" instance=ExtResource("3_x4cyv")]
+position = Vector2(114, -26)
+rotation = -0.0551691
+
+[node name="Spikes4" parent="Obstacles" instance=ExtResource("3_x4cyv")]
+position = Vector2(-81, 52)
+rotation = -0.036893
+
+[node name="Spikes5" parent="Obstacles" instance=ExtResource("3_x4cyv")]
+position = Vector2(-2, 52)
+rotation = -0.036893
+
+[node name="Spikes6" parent="Obstacles" instance=ExtResource("3_x4cyv")]
+position = Vector2(82, 48)
+rotation = -0.036893
+
+[node name="Spikes7" parent="Obstacles" instance=ExtResource("3_x4cyv")]
+position = Vector2(157, 46)
+rotation = -0.036893

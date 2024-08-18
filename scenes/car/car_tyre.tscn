@@ -1,15 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1yvfon808vp6"]
+[gd_scene load_steps=3 format=3 uid="uid://b1yvfon808vp6"]
+
+[ext_resource type="Texture2D" uid="uid://ywg5dwny7j4" path="res://graphics/player_car/truckwheel.png" id="1_r3hej"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_50d18"]
-radius = 6.0
+radius = 9.0
 
 [node name="CarTyre" type="RigidBody2D" groups=["Wheel"]]
 collision_layer = 2
-collision_mask = 28
+collision_mask = 30
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0, 0, 1, 1)
-polygon = PackedVector2Array(0, -6, 6, 0, 0, 6, -6, 0)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("1_r3hej")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_50d18")

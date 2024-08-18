@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://846wtykflive"]
+[gd_scene load_steps=4 format=3 uid="uid://846wtykflive"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_u0u30"]
+[ext_resource type="Texture2D" uid="uid://b3a3e8g1gj0td" path="res://truckbody.png" id="2_7j5ey"]
+[ext_resource type="Texture2D" uid="uid://b36ujpkespjrx" path="res://truckwheel.png" id="3_pa4w3"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_u0u30")
@@ -8,18 +10,55 @@ script = ExtResource("1_u0u30")
 [node name="MainUI" type="CanvasLayer" parent="."]
 
 [node name="PlayBtn" type="Button" parent="MainUI"]
-offset_left = 452.0
-offset_top = 152.0
-offset_right = 685.0
-offset_bottom = 264.0
+offset_left = 669.0
+offset_top = 261.0
+offset_right = 899.0
+offset_bottom = 342.0
 text = "PLAY"
 
 [node name="QuitBtn" type="Button" parent="MainUI"]
-offset_left = 451.0
-offset_top = 354.0
-offset_right = 690.0
-offset_bottom = 466.0
+offset_left = 668.0
+offset_top = 364.0
+offset_right = 907.0
+offset_bottom = 444.0
 text = "QUIT"
+
+[node name="SettingsB" type="Button" parent="MainUI"]
+offset_left = 663.0
+offset_top = 465.0
+offset_right = 909.0
+offset_bottom = 558.0
+text = "SETTINGS"
+
+[node name="Truckbody" type="Sprite2D" parent="MainUI"]
+position = Vector2(210.167, 335.342)
+rotation = -0.837758
+scale = Vector2(0.443167, 0.409053)
+texture = ExtResource("2_7j5ey")
+
+[node name="Truckwheel2" type="Sprite2D" parent="MainUI/Truckbody"]
+position = Vector2(-330.355, 289.363)
+rotation = 0.877381
+scale = Vector2(1.25988, 1.24939)
+skew = -0.0795789
+texture = ExtResource("3_pa4w3")
+
+[node name="Truckwheel" type="Sprite2D" parent="MainUI/Truckbody"]
+position = Vector2(389.85, 297.366)
+rotation = 0.877381
+scale = Vector2(1.27366, 1.18172)
+skew = -0.0795789
+texture = ExtResource("3_pa4w3")
+
+[node name="Label" type="Label" parent="MainUI"]
+offset_left = 498.0
+offset_top = 71.0
+offset_right = 1048.0
+offset_bottom = 166.0
+theme_override_font_sizes/font_size = 50
+text = "FOREST RACER"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="MainUI/PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="MainUI/QuitBtn" to="." method="_on_quit_btn_pressed"]

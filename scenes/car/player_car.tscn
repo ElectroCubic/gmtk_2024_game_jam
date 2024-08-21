@@ -6,8 +6,9 @@
 
 [node name="PlayerCar" type="RigidBody2D"]
 collision_mask = 28
-gravity_scale = 0.15
+gravity_scale = 0.2
 script = ExtResource("1_dbkji")
+speed_modifier = 8
 
 [node name="Body" type="Sprite2D" parent="."]
 position = Vector2(-3, -3)
@@ -37,7 +38,9 @@ softness = 3.5
 gravity_scale = 0.15
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
+offset = Vector2(55, 0)
+zoom = Vector2(4, 4)
+position_smoothing_speed = 2.0
 
 [node name="CarFlipDetection" type="Area2D" parent="."]
 visible = false

@@ -14,10 +14,9 @@ var dist_between_joints: float
 
 
 func _physics_process(delta):
-	
 	#dist_between_joints = front_joint.position.distance_to(back_joint.position)
 	#print(dist_between_joints)
-
+	#print(Global.tyre_health)
 	
 	if Input.is_action_pressed("Forward"):
 		for wheel in wheels:

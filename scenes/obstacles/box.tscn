@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1kgj7mnbg866"]
+
+[ext_resource type="Texture2D" uid="uid://b8dmw26mv4wye" path="res://graphics/obstacles/crate.png" id="1_odsrl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2i2wd"]
+size = Vector2(26, 26)
+
+[node name="Box" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 15
+mass = 0.1
+gravity_scale = 0.15
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_odsrl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2i2wd")
